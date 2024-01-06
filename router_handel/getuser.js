@@ -1,11 +1,14 @@
 const db = require('../db/index')
-
+const sql = 'select username from users where id=?'
+exports.updateAvatar = (req, res) => {
+    res.send('头像')
+}
 
 
 
 exports.getUserInfo = (req,res)=>{
-    const sql = 'select id,username,nickname,email,user_pic from ev_users where id=?'
-    console.log(req);
+    
+    
     db.query(sql,req.auth.id,(err,result)=>{
         if(err) return res.cc(err)
         if(result.length!==1) return res.cc('失败用户信息')

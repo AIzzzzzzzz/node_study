@@ -3,9 +3,9 @@
     const bcrypt = require('bcryptjs')
     const config = require('../config')
     const {reg_login_schema} = require('../schema/user')
-    const select = "select * from ev_users where username=?"
+    const select = "select * from users where username=?"
    /*  const insert = "insert into ev_users (username,password) values(?,?)" */
-    const insert = "insert into ev_users set ?"
+    const insert = "insert into users set ?"
     //导入token包
     const jwt = require('jsonwebtoken')
     exports.regUser=(req,res)=>{
@@ -62,7 +62,7 @@
 
     exports.login=(req,res)=>{
         const userinfo = req.body
-        const sql = "select * from ev_users where username=?"
+        const sql = "select * from users where username=?"
         db.query(sql,userinfo.username,(err,result)=>{
             console.log(result);
             if(err) return res.cc(err)

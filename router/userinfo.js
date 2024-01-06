@@ -4,6 +4,7 @@ const router = express.Router()
 
 router.get('/userinfo',UserInfo.getUserInfo)
 
+router.post('/update/avtar',UserInfo.updateAvatar)
 
 
 module.exports = router
